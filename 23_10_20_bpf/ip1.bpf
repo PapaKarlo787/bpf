@@ -1,0 +1,14 @@
+          ldh      [12]                                         /*(000)*/
+          jeq      #0x800           jt metka_2    jf metka_12   /*(001)*/
+metka_2:  ldb      [23]                                         /*(002)*/
+          jeq      #0x6             jt metka_4    jf metka_12   /*(003)*/
+metka_4:  ldh      [20]                                         /*(004)*/
+          jset     #0x1fff          jt metka_12   jf metka_6    /*(005)*/
+metka_6:  ldxb     4*([14]&0xf)                                 /*(006)*/
+          ldb      [x + 27]                                     /*(007)*/
+          jeq      #0x10            jt metka_9    jf metka_12   /*(008)*/
+metka_9:  ld       #pktlen                                      /*(009)*/
+          jgt      #0x0             jt metka_11   jf metka_12   /*(010)*/
+metka_11: ret      #262144                                      /*(011)*/
+metka_12: ret      #0                                           /*(012)*/
+

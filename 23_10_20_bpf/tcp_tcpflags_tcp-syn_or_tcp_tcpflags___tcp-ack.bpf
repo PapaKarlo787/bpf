@@ -1,0 +1,12 @@
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 11
+(002) ldb      [23]
+(003) jeq      #0x6             jt 4    jf 11
+(004) ldh      [20]
+(005) jset     #0x1fff          jt 11   jf 6
+(006) ldxb     4*([14]&0xf)
+(007) ldb      [x + 27]
+(008) jeq      #0x2             jt 10   jf 9
+(009) jeq      #0x10            jt 10   jf 11
+(010) ret      #262144
+(011) ret      #0

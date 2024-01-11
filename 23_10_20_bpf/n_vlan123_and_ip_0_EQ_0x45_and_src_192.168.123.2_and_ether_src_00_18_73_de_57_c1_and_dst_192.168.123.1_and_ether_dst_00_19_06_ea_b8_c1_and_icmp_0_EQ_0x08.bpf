@@ -1,0 +1,57 @@
+(000) ld       #0x0
+(001) st       M[0]
+(002) st       M[1]
+(003) ldb      [-4048]
+(004) jeq      #0x1             jt 12   jf 5
+(005) ld       #0x4
+(006) st       M[0]
+(007) st       M[1]
+(008) ldh      [12]
+(009) jeq      #0x8100          jt 12   jf 10
+(010) jeq      #0x88a8          jt 12   jf 11
+(011) jeq      #0x9100          jt 12   jf 56
+(012) ldb      [-4048]
+(013) jeq      #0x1             jt 14   jf 16
+(014) ldb      [-4052]
+(015) ja       17
+(016) ldh      [14]
+(017) and      #0xfff
+(018) jeq      #0x7b            jt 19   jf 56
+(019) ldx      M[1]
+(020) ldh      [x + 12]
+(021) jeq      #0x800           jt 22   jf 56
+(022) ldx      M[0]
+(023) txa
+(024) tax
+(025) ldb      [x + 14]
+(026) jeq      #0x45            jt 27   jf 56
+(027) ldx      M[0]
+(028) ld       [x + 26]
+(029) jeq      #0xc0a87b02      jt 30   jf 56
+(030) ld       [8]
+(031) jeq      #0x73de57c1      jt 32   jf 56
+(032) ldh      [6]
+(033) jeq      #0x18            jt 34   jf 56
+(034) ldx      M[0]
+(035) ld       [x + 30]
+(036) jeq      #0xc0a87b01      jt 37   jf 56
+(037) ld       [2]
+(038) jeq      #0x6eab8c1       jt 39   jf 56
+(039) ldh      [0]
+(040) jeq      #0x19            jt 41   jf 56
+(041) ldx      M[0]
+(042) ldb      [x + 23]
+(043) jeq      #0x1             jt 44   jf 56
+(044) ldx      M[0]
+(045) ldh      [x + 20]
+(046) jset     #0x1fff          jt 56   jf 47
+(047) ldx      M[0]
+(048) ldb      [x + 14]
+(049) and      #0xf
+(050) lsh      #2
+(051) add      x
+(052) tax
+(053) ldb      [x + 14]
+(054) jeq      #0x8             jt 55   jf 56
+(055) ret      #262144
+(056) ret      #0

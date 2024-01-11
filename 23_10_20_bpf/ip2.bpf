@@ -1,0 +1,19 @@
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 18
+(002) ld       [26]
+(003) and      #0xffffff00
+(004) jeq      #0xa33cb00       jt 5    jf 18
+(005) ld       [30]
+(006) and      #0xffffff00
+(007) jeq      #0xa33c900       jt 8    jf 18
+(008) ldb      [23]
+(009) jeq      #0x84            jt 12   jf 10
+(010) jeq      #0x6             jt 12   jf 11
+(011) jeq      #0x11            jt 12   jf 18
+(012) ldh      [20]
+(013) jset     #0x1fff          jt 18   jf 14
+(014) ldxb     4*([14]&0xf)
+(015) ldh      [x + 16]
+(016) jeq      #0x15            jt 17   jf 18
+(017) ret      #262144
+(018) ret      #0
